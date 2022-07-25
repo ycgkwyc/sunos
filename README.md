@@ -44,6 +44,8 @@ tar xvfz kubo_v0.14.0_linux-amd64.tar.gz
 # Change Directory Into the IPFS Folder
 ```bash
 cd go-ipfs
+Or
+cd kubo
 ```
 # Install IPFS
 ```bash
