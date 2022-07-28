@@ -167,3 +167,15 @@ Copy and input the command given.
 pm2 save
 ```
 Saves the current process list enabling each process to run when the computer starts.
+
+# ipfs-swarm-key-gen
+This program generates swarm.key file for IPFS Private Network feature.
+# Installation
+```bash
+go get -u github.com/Kubuxu/go-ipfs-swarm-key-gen/ipfs-swarm-key-gen
+```
+Usage
+```bash
+go/bin/ipfs-swarm-key-gen > ~/.ipfs/swarm.key
+```
+Change ~/.ipfs/ to different directory if you use custom IPFS_PATH.
