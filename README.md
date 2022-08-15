@@ -179,3 +179,29 @@ Usage
 go/bin/ipfs-swarm-key-gen > ~/.ipfs/swarm.key
 ```
 Change ~/.ipfs/ to different directory if you use custom IPFS_PATH.
+
+
+# 进入 Termina
+使用Ctrl+Alt+t可以打开打开crosh，在其中输入vmc start termina以启动Termina虚拟机。
+```bash
+vmc start termina
+```
+(termina) chronos@localhost ~ $
+
+```bash
+lxc list
+```
+列出已经安装的容器：
+
+# 进入容器的命令行
+```bash
+/tmp $ lxc exec penguin -- bash
+```
+
+
+
+
+
+
+
+
