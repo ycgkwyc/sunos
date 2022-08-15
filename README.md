@@ -201,6 +201,35 @@ lxc list
 ```bash
 sudo lspci
 ```
+# 在编译服务器查看您的磁盘映像，${BOARD}修改为自己的电路板名称
+进入编译好的磁盘镜像
+```bash
+(inside) ./mount_gpt_image.sh --board=${BOARD} --safe --most_recent
+```
+退出编译好的磁盘镜像（重要）
+```bash
+(inside) ./mount_gpt_image.sh --board=${BOARD} -u
+```
+可以单独挂载磁盘镜像编译或者分区解压缩为单独的文件并直接挂载它们
+(inside)
+```bash
+cd ~/chromiumos/src/build/images/${BOARD}/latest
+```
+```bash
+./unpack_partitions.sh chromiumos_image.bin
+```
+```bash
+mkdir -p rootfs
+```
+```bash
+sudo mount -o loop,ro part_3 rootfs
+```
+这会将 rootfs 从映像环回挂载到 ~/chromiumos/src/build/images/${BOARD}/latest/rootfs 中的chroot位置。
+如果您使用构建，"--no-enable-rootfs-verification" 则可以省略 "ro" 选项以将其安装为读写。
+如果您构建了 x86 ChromiumOS 映像，您甚至可以尝试 chroot 到该映像中：
+```bash
+(inside) sudo chroot ~/chromiumos/src/build/images/${BOARD}/latest/rootfs
+```
 
 
 
