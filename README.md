@@ -230,9 +230,10 @@ sudo mount -o loop,ro part_3 rootfs
 ```bash
 (inside) sudo chroot ~/chromiumos/src/build/images/${BOARD}/latest/rootfs
 ```
-
-
-
+这有点像破解（ChromiumOS rootfs 并不是真正修改服务器主机的 chroot）。完成后不要忘记 exit 这个 chroot。卸载根文件系统：
+```bash
+(inside) sudo umount ~/chromiumos/src/build/images/${BOARD}/latest/rootfs
+```
 
 
 
