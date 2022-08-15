@@ -235,6 +235,7 @@ sudo mount -o loop,ro part_3 rootfs
 (inside) sudo umount ~/chromiumos/src/build/images/${BOARD}/latest/rootfs
 ```
 # 向现有软件包添加更新补丁
+如何修补 Ebuild ：https://chromium.googlesource.com/chromiumos/docs/+/main/portage/how_to_patch_an_ebuild.md
 它来自 portage 位置在 src/third_party/chromiumos-overlay 需要从当前 ebuild 使用的包的确切版本创建一个补丁文件，如果其他补丁已经在 ebuild 中，在文件最后添加新的补丁，并从已经应用了现有补丁的源构建补丁（要么手动完成，要么设置 FEATURES=noclean 并构建你的补丁临时源）。请注意，补丁顺序很重要，因为 ebuild 期望每个补丁行号在应用前一个补丁后都是准确的。
 将您的补丁放在包含 ebuild 文件（例如 third_party/chromiumos-overlay/dev-libs/mypackage/files/mypackage-1.0.0-my-little-patch.patch ）的目录的“files”子目录中。
 然后，在 prepare()ebuild 部分（如果不存在则创建一个），添加一个 epatch 行：
