@@ -43,8 +43,6 @@ tar xvfz kubo_v0.14.0_linux-amd64.tar.gz
 ```
 # Change Directory Into the IPFS Folder
 ```bash
-cd go-ipfs
-Or
 cd kubo
 ```
 # Install IPFS
@@ -182,7 +180,7 @@ Change ~/.ipfs/ to different directory if you use custom IPFS_PATH.
 
 
 # crosh进入 Termina
-使用Ctrl+Alt+t可以打开打开crosh启动Termina虚拟机。
+使用Ctrl+Alt+t可以打开打开crosh启动Termina虚拟机进入shell
 ```bash
 vmc start termina
 ```
