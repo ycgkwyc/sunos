@@ -28,8 +28,21 @@ git status -s in /mnt/host/source/src/third_party/portage-stable
 (inside)
 $ cros_portage_upgrade --verbose --upgrade --unstable-ok --board=amd64-openfyde net-p2p/kubo
 
+# 手动安装gentoo软件包
+# 复制gentoo软件包文件夹到 ~/r96/openfyde/overlays/project-openfyde/ 下例如 net-p2p/kubo
+emerge-amd64-openfyde --search net-p2p/kubo
+emerge-amd64-openfyde --ask net-p2p/kubo
 
-# 手动安装软件包
-# 复制 ebuild 文件夹到 ~/r96/openfyde/overlays/project-openfyde/chromeos-base 下
-emerge-amd64-openfyde --search kubo
-emerge-amd64-openfyde --ask kubo
+# 所有包下载
+git clone https://chromium.googlesource.com/external/github.com/gentoo/gentoo.git
+
+# 缺少 acct-group/ipfs 和 acct-user/ipfs 
+# 复制这2个文件夹到 ~/r96/openfyde/overlays/project-openfyde/ 下 
+
+emerge-amd64-openfyde --search acct-group/ipfs 
+emerge-amd64-openfyde --ask acct-group/ipfs 
+
+emerge-amd64-openfyde --search acct-user/ipfs 
+emerge-amd64-openfyde --ask acct-user/ipfs 
+
+
