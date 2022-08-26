@@ -45,4 +45,14 @@ emerge-amd64-openfyde --ask acct-group/ipfs
 emerge-amd64-openfyde --search acct-user/ipfs 
 emerge-amd64-openfyde --ask acct-user/ipfs 
 
+# 复制eclass文件到以下位置 ~/r96/openfyde/overlays/fyde-eclass/eclass
+acct-group.eclass
+acct-user.eclass
+
+# 重新设置 setup_board
+setup_board --board=amd64-openfyde --force
+
+
+
+
 
