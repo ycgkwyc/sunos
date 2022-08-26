@@ -27,3 +27,9 @@ git status -s in /mnt/host/source/src/third_party/portage-stable
 
 (inside)
 $ cros_portage_upgrade --verbose --upgrade --unstable-ok --board=amd64-openfyde net-p2p/kubo
+
+
+# 手动安装软件包
+# 复制 ebuild 文件夹到 ~/r96/openfyde/overlays/project-openfyde/chromeos-base 下
+emerge-amd64-openfyde --search kubo
+emerge-amd64-openfyde --ask kubo
