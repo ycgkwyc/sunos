@@ -2,9 +2,7 @@
 $ cd r96
 $ cros_sdk
 
-(inside)
-Updating previously created upstream cache at /tmp/portage.
-
+# Updating previously created upstream cache at /tmp/portage.
 (inside)
 git remote set-url origin https://chromium.googlesource.com/external/github.com/gentoo/gentoo.git in /tmp/portage
 (inside)
@@ -12,14 +10,14 @@ git config remote.origin.fetch +refs/heads/master:refs/remotes/origin/master in 
 (inside)
 git remote update in /tmp/portage
 
-Fetching origin
+# Fetching origin
 (inside)
 git checkout -f origin/master in /tmp/portage
 
 (inside)
  cd ~/trunk/src/third_party/portage-stable
 
-Running with board amd64-openfyde
+# Running with board amd64-openfyde
 (inside)
 setup_board --board=amd64-openfyde --force
 
