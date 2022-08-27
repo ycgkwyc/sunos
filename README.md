@@ -60,6 +60,12 @@ Changes directory into the folder
 ```bash
 cd ~/.ipfs
 ```
+# 启动守护进程
+```bash
+ipfs daemon --enable-pubsub-experiment --enable-namesys-pubsub
+```
+# 访问localhost:5001/webui
+
 # Customize Your Configuration With Nano
 
 Changes directory into the folder
