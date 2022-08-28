@@ -64,6 +64,12 @@ emerge-amd64-openfyde -F --unmerge net-p2p/kubo
 # 包依赖关系您可以在 chroot 中使用它
 emerge-amd64-openfyde kubo-0.14.0-r1.ebuild compile
 
+#使用本地编好的包，没有就下源码(尽量避免编译)
+
+emerge-amd64-openfyde --usepkg net-p2p/kubo
+
+##############################################################
+
 # 如何安装单个软件包（没有 gmerge）使用以下命令从文件或 U 盘挂载映像：
 ./mount_gpt_image.sh
 
