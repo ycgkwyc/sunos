@@ -61,4 +61,7 @@ emerge-amd64-openfyde --unmerge net-p2p/kubo
 # 如何检查我的包是否存在于下载镜像中？
 emerge-amd64-openfyde -F --unmerge net-p2p/kubo
 
+# 包依赖关系您可以在 chroot 中使用它
+emerge-amd64-openfyde kubo-0.14.0-r1.ebuild compile
+
 
