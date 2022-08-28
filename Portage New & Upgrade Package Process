@@ -99,3 +99,26 @@ git cl upload
 6.用于repo start开始修改新的覆盖包
 cd ...src/third_party/chromiumos-overlay/
 repo start fix-kubo
+
+7.添加补丁并修改 ebuild 以使用它
+# 查找或创建补丁，将其放在文件目录中# 修改ebuild，例如cross-compile.patch 
+src_prepare() {
+    epatch "${FILESDIR}"/${PN}-1.1.4-mtab-sym.patch
+    epatch "${FILESDIR}"/${PN}-1.1.4-no-exec.patch
+
+### 这是新的
+    epatch "${FILESDIR}"/${PN}-1.1.4-cross-compile.patch
+}
+
+8.检查它现在是否可以构建
+(cros-chroot) $ emerge-amd64-openfyde kubo
+
+9. 将此更改上传到审核服务器并完成整个过程以使其提交
+git commit
+### 修改kubo 以使其构建
+### TEST=emerge-amd64-openfyde
+
+git cl upload
+
+### ...等待审核
+### git推送
