@@ -64,4 +64,38 @@ emerge-amd64-openfyde -F --unmerge net-p2p/kubo
 # 包依赖关系您可以在 chroot 中使用它
 emerge-amd64-openfyde kubo-0.14.0-r1.ebuild compile
 
+# 如何安装单个软件包（没有 gmerge）使用以下命令从文件或 U 盘挂载映像：
+./mount_gpt_image.sh
 
+进入已安装的系统：
+emerge-amd64-openfyde -k --root=/tmp/m net-p2p/kubo
+
+# 如何修改一个portage包？
+在 ChromiumOS 中，portage 存储库被认为是只读的。这意味着如果 portage 包有问题，那么我们必须在chromiumos-overlay中为它创建一个覆盖。
+需要这样做的一个常见原因是包不会交叉编译（对于 ARM 或 x86）。以下是如何做到这一点：
+注意：您必须emerge-${BOARD}在 chroot 内部运行，但 repo and git 命令应该在 chroot 外部执行。
+1.(cros-chroot) $ emerge-amd64-openfyde net-p2p/kubo
+2.确保你有来自 gentoo 的最新版本的 portage。
+$ cd ...src/third_party/portage-stable
+$ git checkout remotes/cros/gentoo
+$ ls net-p2p/kubo
+3.用于repo start开始修改 chromiumos-overlay
+cd ...src/third_party/chromiumos-overlay/
+repo start add-net-p2p-kubo-to-overlay .
+4.把这个包复制到chromiumos-overlay中对应的地方
+mkdir net-p2p
+cp -r ../portage-stable/net-p2p/kubo/ net-p2p/
+我们要使用最新的 ebuild，所以删除其他的
+cd net-p2p/kubo
+rm kubo-0.14.0-1.1* kubo-0.14.0-1.2.0*
+
+5.将此更改上传到审核服务器并完成整个过程以使其提交
+git commit
+### 从 portage 导入 kubo
+### TEST=emerge，虽然它实际上并没有构建
+git cl upload
+### ... 等待审核
+### git推送
+6.用于repo start开始修改新的覆盖包
+cd ...src/third_party/chromiumos-overlay/
+repo start fix-kubo
