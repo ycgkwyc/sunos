@@ -58,5 +58,7 @@ sudo emerge -u @system
 # 删除chroot里安装的软件包 源文件保留
 emerge-amd64-openfyde --unmerge net-p2p/kubo
 
+# 如何检查我的包是否存在于下载镜像中？
+emerge-amd64-openfyde -F --unmerge net-p2p/kubo
 
 
