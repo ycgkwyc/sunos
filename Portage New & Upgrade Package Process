@@ -52,6 +52,9 @@ acct-user.eclass
 # 重新设置 setup_board
 setup_board --board=amd64-openfyde --force
 
+# 更新整个系统
+emerge --update @world && emerge @modue-rebuild && emerge @preserved-rebuild
+
 #更新安装所有 emerge 包，并提示错误
 sudo emerge -u @system
 
