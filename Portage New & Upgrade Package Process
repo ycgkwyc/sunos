@@ -68,8 +68,11 @@ emerge-amd64-openfyde -F --unmerge net-p2p/kubo
 emerge-amd64-openfyde kubo-0.14.0-r1.ebuild compile
 
 #使用本地编好的包，没有就下源码(尽量避免编译)
-
 emerge-amd64-openfyde --usepkg net-p2p/kubo
+
+# 升级内核
+FEATURES="noclean" cros_workon start --board=amd64-openfyde chromeos-kernel-5_4
+cros_workon_make --install chromeos-kernel-5_4
 
 ##############################################################
 
