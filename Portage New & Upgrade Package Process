@@ -71,8 +71,8 @@ emerge-amd64-openfyde kubo-0.14.0-r1.ebuild compile
 emerge-amd64-openfyde --usepkg net-p2p/kubo
 
 # 升级内核
-FEATURES="noclean" cros_workon --board=amd64-openfyde start chromeos-kernel-5_4
-cros_workon_make --board=amd64-openfyde install chromeos-kernel-5_4
+FEATURES="noclean" cros_workon --board=amd64-openfyde start chromeos-kernel-5_10
+FEATURES="noclean" cros_workon_make --board=amd64-openfyde --install chromeos-kernel-5_10
 
 ##############################################################
 
