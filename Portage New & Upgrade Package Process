@@ -138,3 +138,16 @@ git cl upload
 
 ### ...等待审核
 ### git推送
+
+# 修改Chrome OS launcher
+chrome://flags
+
+chrome://flags#productivity-launcher
+App Launcher flag and select “Enabled“
+游戏
+chrome://flags/#launcher-game-search
+重新排序
+chrome://flags/#productivity-reorder-apps
+排序Play Store Search 
+chrome://flags/#launcher-play-store-search
+
