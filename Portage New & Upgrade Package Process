@@ -28,13 +28,18 @@ git status -s in /mnt/host/source/src/third_party/portage-stable
 (inside)
 $ cros_portage_upgrade --verbose --upgrade --unstable-ok --board=amd64-openfyde net-p2p/kubo
 
-# 手动安装gentoo软件包
+# ##############################手动安装gentoo软件包###############
 # 复制gentoo软件包文件夹到 ~/r96/openfyde/overlays/project-openfyde/ 下例如 net-p2p/kubo
 emerge-amd64-openfyde --search net-p2p/kubo
 emerge-amd64-openfyde --ask net-p2p/kubo
 
-# 所有包下载
-git clone https://chromium.googlesource.com/external/github.com/gentoo/gentoo.git
+# 检查此软件包可能还需要什么其他依赖（-pv 代表 --pretend --verbose）
+sudo emerge -pv net-p2p/kubo
+# 直接安装
+sudo emerge net-p2p/kubo
+# 查看更新然后更新
+sudo emerge -puv world 
+sudo emerge -uv world 
 
 # 缺少 acct-group/ipfs 和 acct-user/ipfs 
 # 复制这2个文件夹到 ~/r96/openfyde/overlays/project-openfyde/ 下 
