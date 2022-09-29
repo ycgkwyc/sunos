@@ -58,6 +58,11 @@ emerge --update @world && emerge @modue-rebuild && emerge @preserved-rebuild
 #更新安装所有 emerge 包，并提示错误
 sudo emerge -u @system
 
+
+# 安装包到全局 
+sudo emerge-amd64-openfyde -puv net-p2p/kubo
+sudo emerge-amd64-openfyde -uv net-p2p/kubo
+
 # 删除chroot里安装的软件包 源文件保留
 emerge-amd64-openfyde --unmerge net-p2p/kubo
 
