@@ -31,6 +31,9 @@ $ cros_portage_upgrade --verbose --upgrade --unstable-ok --board=amd64-openfyde 
 # ##############################手动安装gentoo软件包###############
 # 强制更新包
 sudo emerge -GO `qlist -IC glibc zlib`
+# git抛弃本地更改文件
+git clean -nxdf（查看要删除的文件及目录，确认无误后再使用下面的命令进行删除）
+git checkout . && git clean -xdf
 
 # 复制gentoo软件包文件夹到 ~/r96/openfyde/overlays/project-openfyde/ 下例如 net-p2p/kubo
 emerge-amd64-openfyde --search net-p2p/kubo
