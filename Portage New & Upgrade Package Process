@@ -29,6 +29,9 @@ git status -s in /mnt/host/source/src/third_party/portage-stable
 $ cros_portage_upgrade --verbose --upgrade --unstable-ok --board=amd64-openfyde net-p2p/kubo
 
 # ##############################手动安装gentoo软件包###############
+# 强制更新包
+sudo emerge -GO `qlist -IC glibc zlib`
+
 # 复制gentoo软件包文件夹到 ~/r96/openfyde/overlays/project-openfyde/ 下例如 net-p2p/kubo
 emerge-amd64-openfyde --search net-p2p/kubo
 emerge-amd64-openfyde --ask net-p2p/kubo
