@@ -3,6 +3,9 @@
 $ cd r96
 $ cros_sdk
 
+修改路径文件后记得应用
+$ source ~/.profile
+
 # Updating previously created upstream cache at /tmp/portage.
 (inside)
 git remote set-url origin https://chromium.googlesource.com/external/github.com/gentoo/gentoo.git in /tmp/portage
